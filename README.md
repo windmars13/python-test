@@ -1,11 +1,11 @@
 # python-test
 
-Simple Python API client example.
-
-## Install
-
+## Installation
+python -m venv venv
 pip install -r requirements.txt
 
 ## Run
+python src/app.py
 
-python -m tests.test_api
+## Run tests
+pytest
