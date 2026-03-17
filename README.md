@@ -1,3 +1,4 @@
+> ⚠️ This repository is for learning and workflow experimentation. Not a production-ready project.
 # 2026 職涯重啟計畫：Python 數據分析與全端開發實戰
 
 這是我為了參加 **勞動力發展署中彰投分署 - 全端開發與數據視覺化應用班** 所做的前哨練習與自學紀錄。
