@@ -1,6 +1,6 @@
 # Sandbox Project
 
-![Coverage](./coverage.svg)
+![Code Coverage](https://img.shields.io/badge/coverage-29.03%25-red)
 
 ## 📌 專案簡介
 
