@@ -49,18 +49,20 @@ pytest / coverage / black → 測試與程式碼品質工具
 
 ## 📂 專案結構
 
+```text
 sandbox/
-├── backend/ # 後端程式碼 (Python, PHP)
-├── frontend/ # 前端程式碼 (HTML, CSS, JS, Vue)
-├── src/ # 核心模組
-├── tests/ # 測試案例
-├── .github/ # GitHub Actions CI/CD 設定
-├── requirements.in # 開發需求清單 (不鎖版本)
-├── requirements.txt # 部署需求清單 (鎖版本)
-├── README.md # 專案說明文件
-├── pytest.ini # 測試設定
-├── .editorconfig # 編碼與縮排規範
-└── .gitignore # 忽略檔案設定
+├── backend/          # 後端程式碼 (Python, PHP)
+├── frontend/         # 前端程式碼 (HTML, CSS, JS, Vue)
+├── src/              # 核心模組
+├── tests/            # 測試案例
+├── .github/          # GitHub Actions CI/CD 設定
+├── requirements.in   # 開發需求清單 (不鎖版本)
+├── requirements.txt  # 部署需求清單 (鎖版本)
+├── README.md         # 專案說明文件
+├── pytest.ini        # 測試設定
+├── .editorconfig     # 編碼與縮排規範
+└── .gitignore        # 忽略檔案設定
+```
 
 ## 🎯 專案特色
 
@@ -83,3 +85,7 @@ sandbox/
 - Kai
 - 全端工程師培訓中，專注於 Python 後端與前端整合
 - 專案目的：作為學習與職場作品集的一部分
+
+```
+
+```
