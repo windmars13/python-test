@@ -15,34 +15,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. 設定 Python 環境（用穩定版）
+      # 2. 設定 Python 環境
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      # 3. 安裝套件
+      # 3. 安裝套件 (包含解決 pkg_resources 報錯的關鍵套件)
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install setuptools  # <--- 重點！補上這行
-          pip install pytest pytest-cov coverage-badge black
+          pip install setuptools wheel coverage pytest pytest-cov coverage-badge black
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # 4. 程式碼格式檢查 (black)
+      # 4. 程式碼格式檢查 (Black)
+      # 如果這步噴紅字，記得在本地執行 black . 再 push
       - name: Run Black (code style check)
         run: black --check .
 
-      # 5. 測試 (pytest + coverage)
-      - name: Run tests
+      # 5. 執行測試並生成數據
+      - name: Run tests and generate coverage
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/src
-          pytest --cov=src -v
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
+          # 執行測試並產生 .coverage 檔案，同時顯示未覆蓋的行號
+          pytest --cov=src --cov-report=term-missing -v
 
       # 6. 生成 Coverage Badge
       - name: Generate coverage badge
         run: |
-          # 確保先執行測試產生 .coverage 檔案
-          pytest --cov=.
-          # 使用 python -m 來執行，更穩定
+          # 直接使用已產生的 .coverage 數據生成 SVG
           python -m coverage_badge -o coverage.svg -f
+
+      # 7. (選填) 如果你希望在 GitHub 看到生成的檔案，可以加入這步存檔
+      - name: Upload coverage badge
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-badge
+          path: coverage.svg
