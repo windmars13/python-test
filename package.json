@@ -1,10 +1,23 @@
 {
+  "type": "module",
   "scripts": {
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,html,css,scss,json,md,yml,yaml}": "prettier --write",
+    "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
   },
   "devDependencies": {
+    "@eslint/js": "latest",
     "eslint": "^10.2.1",
-    "prettier": "^3.8.3"
+    "eslint-config-prettier": "latest",
+    "lint-staged": "^15.5.1",
+    "prettier": "^3.8.3",
+    "simple-git-hooks": "^2.13.0"
   }
 }
